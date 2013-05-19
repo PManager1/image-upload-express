@@ -1,0 +1,18 @@
+doctype
+html
+	head
+		title Add new customer
+		link(rel= 'stylesheet', href='/stylesheets/style.css')
+	body
+		h3 Customer Details
+		form(id='form', method='post', action='/customer/create')
+			label(for='Name') Name
+			input(type='text', id='name', name='name')
+			
+			label(for='email') Email
+			input(type='email', id='Email', name= 'email')
+
+			label(for='tel') Telephone
+			input(type='tel', id='telephone', name= 'telephone')
+			
+			input(type='submit', value=' Add Customer')

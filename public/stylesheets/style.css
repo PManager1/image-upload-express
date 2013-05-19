@@ -1,8 +1,14 @@
 body {
   padding: 50px;
+  padding-top: 10px !important;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: blue;
+}
+
+td{
+	border:solid 1px;
+	padding:5px;
 }

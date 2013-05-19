@@ -4,8 +4,9 @@
  */
 
 var express = require('express')
-  
   , http = require('http')
+  , home = require('./routes/home.js')
+  , customer = require('./routes/customer.js')
   , path = require('path');
 
 var app = express();
@@ -21,10 +22,14 @@ app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.get('/', home.index); 
+app.get('/contact', home.contact); 
+app.get('/customer', customer.index);
+app.get('/customer/create', customer.create); 
+app.get('/customer/details/:id', customer.details); 
+app.post('/customer/create', customer.createCustomer); 
 
-app.get('/', function (req,res) {
-	res.render('empty');
-});
+
 
 
 
