@@ -29,6 +29,8 @@ app.get('/customer/create', customer.create);
 app.get('/customer/details/:id', customer.details); 
 app.post('/customer/create', customer.createCustomer); 
 
+app.get('/customer/edit/:id', customer.edit); 
+app.post('/customer/edit/:id', customer.editCustomer); 
 
 
 

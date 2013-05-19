@@ -20,9 +20,19 @@ exports.createCustomer = function(req,res){
 
 exports.details = function  (req,res) {
 	var customer = db.getCustomerById(req.params.id); 
+	res.render('customer/details', {customer:customer});
+}; 
 
-	res.render('customer/details', {customer:customer} );
+exports.edit = function  (req,res) {
+	var customer = db.getCustomerById(req.params.id); 
+	res.render('customer/edit', {customer:customer});
+},
+
+exports.editCustomer = function  (req,res) {
+	db.updateCustomer({ id:req.params.id, name:req.body.name, email:req.body.email, telephone:req.body.telephone });
+	res.redirect('/customer');
 }
+
 
 
 
