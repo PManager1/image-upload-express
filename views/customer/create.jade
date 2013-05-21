@@ -5,7 +5,7 @@ html
 		link(rel= 'stylesheet', href='/stylesheets/style.css')
 	body
 		h3 Customer Details
-		form(id='form', method='post', action='/customer/create')
+		form(id='form', method='post', action='/customer/create', enc8type="multipart/form-data")
 			label(for='Name') Name
 			input(type='text', id='name', name='name')
 			
@@ -14,5 +14,8 @@ html
 
 			label(for='tel') Telephone
 			input(type='tel', id='telephone', name= 'telephone')
+			
+			label(for='picture') picture
+			input(type='file', id='picture', name= 'picture')
 			
 			input(type='submit', value=' Add Customer')

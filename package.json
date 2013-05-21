@@ -6,7 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "latest",
+    "express": ">3",
     "jade": "latest",
     "nodemon": "~0.7.6"
   }

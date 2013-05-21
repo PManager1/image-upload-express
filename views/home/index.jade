@@ -13,23 +13,4 @@ html
 				th Telephone
 				th Edit
 				th Delete
-			each item in customers 
-
-				tr 
-					td 
-						a(href='/customer/details/#{item.id}') #{item.id}
-					td #{item.name}
-					td #{item.email}
-					td #{item.telephone}
-					td
-						a(href='/customer/edit/#{item.id}') Edit
-					td
-						a(href='/customer/delete/#{item.id}') Delete
-
-		p 
-		#menu
-			a(href='/customer/create') Add new customer 
-
-
-
-
+			

@@ -1,0 +1,12 @@
+doctype
+html
+	head
+		title Add new customer
+		link(rel= 'stylesheet', href='/stylesheets/style.css')
+	body
+		h3 Customer Details
+			form(id='form', method='post', action="/file-upload", enctype="multipart/form-data")
+				input(type='text', name='username')
+				input(type='password', name= 'password')
+				input(type='file', name= 'thumbnail')
+				input(type='submit')
