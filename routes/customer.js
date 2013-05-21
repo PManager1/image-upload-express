@@ -15,13 +15,36 @@ exports.create = function (req,res) {
 
 exports.createCustomer = function(req,res){
 		
-	console.dir(req.files.picture);
+	// console.dir(req.files.picture);
 
 	db.addCustomer({ name: req.body.name, email: req.body.email, telephone: req.body.telephone, 
 		picture: req.files.picture.path});
 
+
+	 var fs = require('fs');
+
+	  // get the temporary location of the file
+	  var tmp_path = req.files.picture.path;
+
+	  // set where the file should actually exists - in this case it is in the "images" directory
+	 	var target_path = './public/images/' + req.files.picture.name;
+	 	
+	    // move the file from the temporary location to the intended location
+	    fs.rename(tmp_path, target_path, function(err) {
+	        if (err) throw err;
+	        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+	        fs.unlink(tmp_path, function() {
+	            if (err) throw err;
+	            res.send('File uploaded to: ' + target_path + ' - ' + req.files.picture.size + ' bytes');
+	        });
+	});
+
+
 	res.redirect('/customer');
 };
+
+
+
 
 exports.details = function  (req,res) {
 	var customer = db.getCustomerById(req.params.id); 
